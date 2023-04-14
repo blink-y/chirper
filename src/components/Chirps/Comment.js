@@ -34,13 +34,13 @@ function Comment({ comment, ownerTag }) {
                         </p>
                     </div>
                     <div className="icon group flex-shrink-0">
-                        <BiDotsHorizontalRounded className="h-5 text-[#6e767d] group-hover:text-[#1d9bf0]" />
+                        <BiDotsHorizontalRounded className="h-5 text-[#6e767d] group-hover:text-[#ab4f56]" />
                     </div>
                 </div>
 
                 <div className="text-[#6e767d] flex justify-between w-10/12">
                     <div className="icon group">
-                        <BsChatDots className="h-5 group-hover:text-[#1d9bf0]" />
+                        <BsChatDots className="h-5 group-hover:text-[#ab4f56]" />
                     </div>
 
                     <div className="flex items-center space-x-1 group">
@@ -51,10 +51,10 @@ function Comment({ comment, ownerTag }) {
                     </div>
 
                     <div className="icon group">
-                        <AiOutlineShareAlt className="h-5 group-hover:text-[#1d9bf0]" />
+                        <AiOutlineShareAlt className="h-5 group-hover:text-[#ab4f56]" />
                     </div>
                     <div className="icon group">
-                        <BsBarChart className="h-5 group-hover:text-[#1d9bf0]" />
+                        <BsBarChart className="h-5 group-hover:text-[#ab4f56]" />
                     </div>
                 </div>
             </div>

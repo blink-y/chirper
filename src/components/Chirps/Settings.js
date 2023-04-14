@@ -6,7 +6,6 @@ import { db } from '@/firebase';
 
 const Settings = () => {
   const router = useRouter();
-  const profile_tag = window.location.pathname.split('/')[2];
   const [userObjectId, setUserObjectId] = useState('')
   const [userId, setUserId] = useState('');
   const [user, setUser] = useState(null);
@@ -33,7 +32,7 @@ const Settings = () => {
       onSnapshot(
         query(collection(db, `users`), where("userId", "==", userId)),
         (snapshot) => {
-            setUserObjectId(snapshot.docs[0].id)
+          setUserObjectId(snapshot.docs[0].id)
         }
       )
     }
@@ -47,17 +46,17 @@ const Settings = () => {
     const result = await getDocs(query(collection(db, 'users'), where(field, '==', value)));
     return result.empty;
   };
-  
+
   const fetchUserData = async (userId) => {
     const userSnapshot = await getDoc(doc(db, 'users', userId));
     return userSnapshot.data();
   };
-  
+
   const saveSettings = async () => {
     if (user) {
       let canUpdate = true;
       const existingUserData = await fetchUserData(userObjectId);
-  
+
       if (user.email !== existingUserData.email) {
         const isEmailUnique = await isUnique('email', user.email);
         if (!isEmailUnique) {
@@ -65,7 +64,7 @@ const Settings = () => {
           alert('Email is already in use. Please choose a different one.');
         }
       }
-  
+
       if (user.tag !== existingUserData.tag) {
         const isTagUnique = await isUnique('tag', user.tag);
         if (!isTagUnique) {
@@ -73,7 +72,7 @@ const Settings = () => {
           alert('Tag is already in use. Please choose a different one.');
         }
       }
-  
+
       if (canUpdate) {
         await updateDoc(doc(db, 'users', userObjectId), {
           username: user.username,
@@ -81,19 +80,17 @@ const Settings = () => {
           tag: user.tag,
           email: user.email,
         });
-  
+
         // Update localStorage with the new user data
         localStorage.setItem('userId', user.userId);
         localStorage.setItem('userImg', user.userImg);
         localStorage.setItem('username', user.username);
         localStorage.setItem('tag', user.tag);
-  
+
         router.push(`/profile/${user.tag}`);
       }
     }
   };
-  
-  
 
   return (
     <div className="settings-container">

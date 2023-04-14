@@ -9,7 +9,7 @@ const Profile = () => {
   const router = useRouter()
   const [posts, setPosts] = useState([])
   const [following, setFollowing] = useState([])
-  const [profile_user, setProfileUser] = useState(null)
+  const [profileUser, setProfileUser] = useState(null)
   const [dataFetched, setDataFetched] = useState(false);
   const [userObjectId, setUserObjectId] = useState('')
   const [user, setUser] = useState(null)
@@ -107,7 +107,7 @@ const Profile = () => {
   }
   return (
     <>
-      {profile_user && (
+      {profileUser && (
         <>
           <div className='top-bar'>
             <BsArrowLeft className='cursor-pointer' onClick={() => router.push(`/`)} />
@@ -115,11 +115,11 @@ const Profile = () => {
           </div>
   
           <div className="profile-header">
-            <img src={profile_user.userImg} alt={`${profile_user.username}'s profile`} className="profile-image" />
-            <h2 className="profile-name">{profile_user.username}</h2>
-            <p className="profile-tag">@{profile_user.tag}</p>
+            <img src={profileUser.userImg} alt={`${profileUser.username}'s profile`} className="profile-image" />
+            <h2 className="profile-name">{profileUser.username}</h2>
+            <p className="profile-tag">@{profileUser.tag}</p>
             <div className='post_action_bar'>
-              {profile_user.userId === userId ? (
+              {profileUser.userId === userId ? (
                 <div
                 className="action-button"
                 onClick={() => router.push(`/settings/${profile_tag}`)}
@@ -131,20 +131,20 @@ const Profile = () => {
                   className="action-button"
                   onClick={(e) => {
                     e.stopPropagation();
-                    router.push(`/chat/${userId}/${profile_user.userId}`);
+                    router.push(`/chat/${userId}/${profileUser.userId}`);
                   }}
                 >
                   Chat
                 </div>
               }
-              {profile_user.userId === userId ? (
+              {profileUser.userId === userId ? (
                 null
-              ) : following.includes(profile_user.userId) ? (
+              ) : following.includes(profileUser.userId) ? (
                 <div
                   className="action-button"
                   onClick={(e) => {
                     e.stopPropagation();
-                    unfollowUser(profile_user);
+                    unfollowUser(profileUser);
                   }}
                 >
                   Unfollow
@@ -154,7 +154,7 @@ const Profile = () => {
                   className="action-button"
                   onClick={(e) => {
                     e.stopPropagation();
-                    followUser(profile_user);
+                    followUser(profileUser);
                   }}
                 >
                   Follow
@@ -171,13 +171,13 @@ const Profile = () => {
         </>
       )}
   
-  {!profile_user && dataFetched && (
+  {!profileUser && dataFetched && (
       <div className="message-container">
         <h2 className="message-text">User doesn't exist</h2>
       </div>
     )}
 
-    {!profile_user && !dataFetched && (
+    {!profileUser && !dataFetched && (
       <div className="message-container">
         <h2 className="message-text">Loading...</h2>
       </div>

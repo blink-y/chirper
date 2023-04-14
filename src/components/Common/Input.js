@@ -139,7 +139,7 @@ const Input = ({ user }) => {
 
         {!loading && (
           <div className='flex justify-between items-center'>
-            <div className='flex gap-4 text-[20px] text-[#1d9bf0]'>
+            <div className='flex gap-4 text-[20px] text-[#ab4f56 ]'>
               <label htmlFor="file">
                   <BsImage className='cursor-pointer' />
               </label>
@@ -156,7 +156,7 @@ const Input = ({ user }) => {
               <HiOutlineLocationMarker />
               <button
                 className={`${
-                  isNSFW ? 'text-[#1d9bf0]' : 'text-[#1d9bf0]'
+                  isNSFW ? 'text-[#ab4f56]' : 'text-[#ab4f56 ]'
                 } text-xs font-semibold dark:border--300 flex items-center justify-center`}
                 onClick={() => setIsNSFW(!isNSFW)}
               >
@@ -167,7 +167,7 @@ const Input = ({ user }) => {
 
               </div>
               <button
-                  className="bg-[#1d9bf0] text-white rounded-full px-4 py-1.5 font-bold shadow-md hover:bg-[#1a8cd8] disabled:hover:bg-[#1d9bf0] disabled:opacity-50 disabled:cursor-default"
+                  className="bg-[#ab4f56] text-white rounded-full px-4 py-1.5 font-bold shadow-md hover:bg-[#ab4f56] disabled:hover:bg-[#ab4f56] disabled:opacity-50 disabled:cursor-default"
                   disabled={!input.trim() && !selectedFile}
                   onClick={sendPost} >
                   Chirp!

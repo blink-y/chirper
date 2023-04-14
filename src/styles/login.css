@@ -1,5 +1,5 @@
 .login_background {
-    @apply bg-[#1d9bf0] h-screen grid place-items-center relative;
+    @apply bg-[#ab4f56] h-screen grid place-items-center relative;
 }
 
 .google_sign_in_button {

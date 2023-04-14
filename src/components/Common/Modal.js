@@ -122,7 +122,7 @@ const Modal = ({ open, setOpen, post }) => {
 
                         }
                     </div>
-                    <div className='flex gap-4 text-[20px] text-[#1d9bf0]'>
+                    <div className='flex gap-4 text-[20px] text-[#ab4f56]'>
                     <label htmlFor="file">
                         <BsImage className='cursor-pointer' />
                     </label>
@@ -165,7 +165,7 @@ const Modal = ({ open, setOpen, post }) => {
                     Cancel
                     </button>
                     <button
-                        className="bg-[#1d9bf0] text-white rounded-full px-4 py-1.5 font-bold shadow-md hover:bg-[#1a8cd8] disabled:hover:bg-[#1d9bf0] disabled:opacity-50 disabled:cursor-default ml-4"
+                        className="bg-[#ab4f56] text-white rounded-full px-4 py-1.5 font-bold shadow-md hover:bg-[#1a8cd8] disabled:hover:bg-[#ab4f56] disabled:opacity-50 disabled:cursor-default ml-4"
                         disabled={!input.trim() && !selectedFile}
                         onClick={sendReply} >
                         Chirp
