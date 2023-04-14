@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react'
-import Login from '@/components/Login'
 import Sidebar from '@/components/Common/Sidebar'
 import Head from 'next/head'
 import SinglePost from '@/components/Chirps/SinglePost'
@@ -7,15 +6,14 @@ import { AppContext } from '@/contexts/AppContext'
 import Trending from '@/components/Common/Trending'
 
 const PostPage = () => {
-
   const [appContext] = useContext(AppContext)
 
-  const [hasMounted, setHasMounted] = React.useState(false);
+  const [hasMounted, setHasMounted] = React.useState(false)
   React.useEffect(() => {
-    setHasMounted(true);
-  }, []);
+    setHasMounted(true)
+  }, [])
   if (!hasMounted) {
-    return null;
+    return null
   }
 
   return (

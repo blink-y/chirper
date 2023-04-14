@@ -1,42 +1,38 @@
 import React, { useEffect, useState } from 'react'
 import { onSnapshot, collection, query, where, updateDoc, doc } from 'firebase/firestore'
-import { BsArrowLeft } from "react-icons/bs"
+import { BsArrowLeft } from 'react-icons/bs'
 import Post from './Post'
 import { db } from '@/firebase'
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/router'
 
 const Profile = () => {
   const router = useRouter()
   const [posts, setPosts] = useState([])
   const [following, setFollowing] = useState([])
   const [profileUser, setProfileUser] = useState(null)
-  const [dataFetched, setDataFetched] = useState(false);
+  const [dataFetched, setDataFetched] = useState(false)
   const [userObjectId, setUserObjectId] = useState('')
   const [user, setUser] = useState(null)
-  const [userId, setUserId] = useState("")
-  const profile_tag = window.location.pathname.split("/")[2];
+  const [userId, setUserId] = useState('')
+  const profile_tag = window.location.pathname.split('/')[2]
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-
-      setUserId(localStorage.getItem("userId"))
-    
+    if (typeof window !== 'undefined') {
+      setUserId(localStorage.getItem('userId'))
     }
   }, [userId])
 
-
   useEffect(() => {
     if (userId) {
+      setUserId(localStorage.getItem('userId'))
 
-      setUserId(localStorage.getItem("userId"))
-    
       onSnapshot(
-        query(collection(db, `users`), where("userId", "==", userId)),
+        query(collection(db, 'users'), where('userId', '==', userId)),
         (snapshot) => {
-            let following = snapshot.docs[0].data().following
-            console.log(following)
-            setFollowing(following)
-            setUserObjectId(snapshot.docs[0].id)
+          const following = snapshot.docs[0].data().following
+          console.log(following)
+          setFollowing(following)
+          setUserObjectId(snapshot.docs[0].id)
         }
       )
     }
@@ -45,22 +41,22 @@ const Profile = () => {
   useEffect(() => {
     onSnapshot(
       query(
-        collection(db, `users`), where("tag", "==", profile_tag)
+        collection(db, 'users'), where('tag', '==', profile_tag)
       ),
       (snapshot) => {
-        if(snapshot.docs.length > 0) {
-        const userWithProfileTag = snapshot.docs[0].data()
-        setProfileUser(snapshot.docs[0].data())
+        if (snapshot.docs.length > 0) {
+          const userWithProfileTag = snapshot.docs[0].data()
+          setProfileUser(snapshot.docs[0].data())
           onSnapshot(
             query(
-              collection(db, `posts`), where("userId", "==", userWithProfileTag.userId)
+              collection(db, 'posts'), where('userId', '==', userWithProfileTag.userId)
             ),
             (snapshot) => {
               setPosts(snapshot.docs.map((doc) => doc.data()).sort((a, b) => b.timestamp - a.timestamp))
             }
           )
         }
-        setDataFetched(true);
+        setDataFetched(true)
       }
     )
   }, [])
@@ -68,101 +64,106 @@ const Profile = () => {
   const updatePost = (singlePost) => {
     const update = onSnapshot(
       query(
-        collection(db, `users`), where("userId", "==", singlePost.userId)
+        collection(db, 'users'), where('userId', '==', singlePost.userId)
       ),
       async (snapshot) => {
-        const postOwner = snapshot.docs[0].data();
+        const postOwner = snapshot.docs[0].data()
         const replaceIndex = postOwner.posts.findIndex((item) => item.id === singlePost.id)
         postOwner.posts[replaceIndex] = singlePost
-        await updateDoc(doc(db, "users", singlePost.userId), {
+        await updateDoc(doc(db, 'users', singlePost.userId), {
           posts: postOwner.posts
         })
       }
-    );
-    update();
+    )
+    update()
   }
 
   const followUser = async (account) => {
     console.log(userObjectId)
-    await updateDoc(doc(db, "users", userObjectId), {
+    await updateDoc(doc(db, 'users', userObjectId), {
       following: [...following, account.userId]
     })
   }
 
   const unfollowUser = async (account) => {
-    await updateDoc(doc(db, "users", userObjectId), {
-      following: following.filter((id) => id!== account.userId)
+    await updateDoc(doc(db, 'users', userObjectId), {
+      following: following.filter((id) => id !== account.userId)
     })
   }
 
-  const [hasMounted, setHasMounted] = React.useState(false);
+  const [hasMounted, setHasMounted] = React.useState(false)
   React.useEffect(() => {
-    setHasMounted(true);
-  }, []);
+    setHasMounted(true)
+  }, [])
   React.useEffect(() => {
-    console.log(posts);
-  }, [posts]);
+    console.log(posts)
+  }, [posts])
   if (!hasMounted) {
-    return null;
+    return null
   }
   return (
     <>
       {profileUser && (
         <>
           <div className='top-bar'>
-            <BsArrowLeft className='cursor-pointer' onClick={() => router.push(`/`)} />
+            <BsArrowLeft className='cursor-pointer' onClick={() => router.push('/')} />
             Profile
           </div>
-  
+
           <div className="profile-header">
             <img src={profileUser.userImg} alt={`${profileUser.username}'s profile`} className="profile-image" />
             <h2 className="profile-name">{profileUser.username}</h2>
             <p className="profile-tag">@{profileUser.tag}</p>
             <div className='post_action_bar'>
-              {profileUser.userId === userId ? (
+              {profileUser.userId === userId
+                ? (
                 <div
                 className="action-button"
                 onClick={() => router.push(`/settings/${profile_tag}`)}
               >
                 Edit Profile
               </div>
-              ) :
-                <div
+                  )
+                : <div
                   className="action-button"
                   onClick={(e) => {
-                    e.stopPropagation();
-                    router.push(`/chat/${userId}/${profileUser.userId}`);
+                    e.stopPropagation()
+                    router.push(`/chat/${userId}/${profileUser.userId}`)
                   }}
                 >
                   Chat
                 </div>
               }
-              {profileUser.userId === userId ? (
-                null
-              ) : following.includes(profileUser.userId) ? (
+              {profileUser.userId === userId
+                ? (
+                    null
+                  )
+                : following.includes(profileUser.userId)
+                  ? (
                 <div
                   className="action-button"
                   onClick={(e) => {
-                    e.stopPropagation();
-                    unfollowUser(profileUser);
+                    e.stopPropagation()
+                    unfollowUser(profileUser)
                   }}
                 >
                   Unfollow
                 </div>
-              ) : (
+                    )
+                  : (
                 <div
                   className="action-button"
                   onClick={(e) => {
-                    e.stopPropagation();
-                    followUser(profileUser);
+                    e.stopPropagation()
+                    followUser(profileUser)
                   }}
                 >
                   Follow
                 </div>
-              )}
+                    )}
             </div>
           </div>
-      
+
           {posts.map((post) => {
             return (
               <Post key={post.id} post={post} id={post.id} user={user} updatePost={updatePost} />
@@ -170,12 +171,12 @@ const Profile = () => {
           })}
         </>
       )}
-  
+
   {!profileUser && dataFetched && (
       <div className="message-container">
         <h2 className="message-text">User doesn't exist</h2>
       </div>
-    )}
+  )}
 
     {!profileUser && !dataFetched && (
       <div className="message-container">
@@ -184,7 +185,6 @@ const Profile = () => {
     )}
     </>
   )
-  
 }
 
 export default Profile

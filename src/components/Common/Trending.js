@@ -4,7 +4,7 @@ import TrendingList from './TrendingList'
 
 const Trending = () => {
   const proceedSearch = (e) => {
-    if (e.keyCode == 13) {
+    if (e.keyCode === 13) {
       window.location.href = `/search/${e.target.value}`
     }
   }

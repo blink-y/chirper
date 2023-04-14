@@ -4,7 +4,7 @@ import { BsBarChart, BsChatDots } from 'react-icons/bs'
 import Moment from 'react-moment'
 
 function Comment({ comment, ownerTag }) {
-    return (
+  return (
         <div className="comment_container">
             <img
                 src={comment?.userImg}
@@ -59,7 +59,7 @@ function Comment({ comment, ownerTag }) {
                 </div>
             </div>
         </div>
-    )
+  )
 }
 
 export default Comment

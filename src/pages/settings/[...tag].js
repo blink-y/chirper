@@ -7,15 +7,14 @@ import { AppContext } from '@/contexts/AppContext'
 import Trending from '@/components/Common/Trending'
 
 const SettingsPage = () => {
-
   const [appContext] = useContext(AppContext)
 
-  const [hasMounted, setHasMounted] = React.useState(false);
+  const [hasMounted, setHasMounted] = React.useState(false)
   React.useEffect(() => {
-    setHasMounted(true);
-  }, []);
+    setHasMounted(true)
+  }, [])
   if (!hasMounted) {
-    return null;
+    return null
   }
 
   return (

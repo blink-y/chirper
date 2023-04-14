@@ -18,7 +18,7 @@ const Sidebar = () => {
       </div>
       <div className='space-y-2 mt-4 mb-2.5 xl:ml-24'>
         <div onClick={() => router.push('/')}>
-          <SidebarLink text='Home' Icon={AiFillHome}/>
+          <SidebarLink text='Feed' Icon={AiFillHome}/>
         </div>
         <SidebarLink text='Messages' Icon={AiOutlineInbox}/>
 

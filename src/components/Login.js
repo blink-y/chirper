@@ -1,25 +1,24 @@
 import React from 'react'
 import Head from 'next/head'
-import { GiEgyptianBird } from 'react-icons/gi';
+import { GiEgyptianBird } from 'react-icons/gi'
 import { AiOutlineMail } from 'react-icons/ai'
 import { useRouter } from 'next/router'
 
 const Login = () => {
-
   const router = useRouter()
 
   // const googleSignin = () => {
   //   signIn('google', {callbackUrl: '/'});
   // }
   const emailSignin = () => {
-    router.push("/login")
+    router.push('/login')
   }
-  const [hasMounted, setHasMounted] = React.useState(false);
+  const [hasMounted, setHasMounted] = React.useState(false)
   React.useEffect(() => {
-    setHasMounted(true);
-  }, []);
+    setHasMounted(true)
+  }, [])
   if (!hasMounted) {
-    return null;
+    return null
   }
   return (
     <>

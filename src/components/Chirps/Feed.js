@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { onSnapshot, collection, query, where, updateDoc, doc, or } from 'firebase/firestore'
+import { onSnapshot, collection, query, where, updateDoc, doc } from 'firebase/firestore'
 import { HiOutlineSparkles } from 'react-icons/hi'
 import Post from './Post'
 import { db } from '@/firebase'
@@ -65,7 +65,7 @@ const Feed = () => {
     <>
 
       <div className='top-bar'>
-        Home
+        Feed
         <div className="my-auto">
           <HiOutlineSparkles />
         </div>
