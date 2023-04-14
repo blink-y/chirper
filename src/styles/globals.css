@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('./common.css');
+@import url('./feedpage.css');
+@import url('./login.css');
+@import url('./adminpage.css');
+@import url('./profile.css');
+@import url('./settings.css');
+
+@layer base {
+  body {
+    @apply bg-white dark:bg-black;
+  }
+
+  @layer components {
+    .hoverEffect {
+      @apply hover:bg-gray-200 dark:hover:bg-[#181818] rounded-full cursor-pointer transition duration-300;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+.settings-container {
+    @apply max-w-xl mx-auto p-4;
+  }
+  
+  .input-container {
+    @apply mb-4;
+  }
+  
+  .input-field {
+    @apply block w-full py-2 px-3 text-base border border-gray-300 dark:border-gray-600 rounded outline-none transition duration-200;
+  }
+  
+  .input-field:focus {
+    @apply border-blue-400 dark:border-blue-300;
+  }
+  
+  .save-button {
+    @apply bg-blue-500 text-white py-2 px-4 text-base font-semibold border-none rounded-full cursor-pointer transition duration-200;
+  }
+  
+  .save-button:hover {
+    @apply bg-blue-600;
+  }
+  

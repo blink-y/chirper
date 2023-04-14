@@ -1,0 +1,60 @@
+.post_container {
+    @apply mt-4 border-t border-gray-500 px-4 pt-6 pb-4 cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-900 text-black dark:text-white relative;
+}
+
+
+.post_margin {
+    @apply grid grid-cols-[48px,1fr] gap-4
+}
+
+.post_avatar {
+    @apply h-12 w-12 rounded-full object-cover;
+}
+
+.post_image {
+    @apply max-h-[450px] object-cover rounded-[20px];
+}
+
+.post_action_bar {
+    @apply flex justify-between text-[20px] mt-2 w-[80%];
+}
+
+.post_action_button {
+    @apply cursor-pointer flex
+}
+
+.comment_container {
+    @apply p-3 flex cursor-pointer border-b border-gray-700;
+}
+
+.comment_avatar {
+    @apply h-11 w-11 rounded-full mr-4;
+}
+
+.comment_owner {
+    @apply font-bold text-[#d9d9d9] text-[15px] sm:text-base inline-block group-hover:underline;
+}
+
+.comment_content {
+    @apply text-[#d9d9d9] mt-0.5 max-w-lg text-[15px] sm:text-base;
+}
+
+.blurred_content_container {
+    @apply relative;
+}
+
+.blurred_content {
+    @apply filter blur-[50px] opacity-50;
+}
+
+.warning_msg {
+    @apply gap-3 relative mt-0 p-4 text-center bg-white dark:bg-black rounded-lg;
+}
+
+.warning_msg p {
+    @apply mb-2 text-sm;
+}
+
+.warning_msg button {
+    @apply px-4 py-1 rounded border border-blue-600 text-blue-600 font-semibold dark:border-blue-300 dark:text-blue-300;
+}
