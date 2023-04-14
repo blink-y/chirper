@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import Sidebar from '@/components/Common/Sidebar'
 import Trending from '@/components/Common/Trending'
 import { onSnapshot, collection, query, where, doc, updateDoc, orderBy } from 'firebase/firestore'
-import { db } from '@/firebase'
+import { db } from '@/firebase' 
 import { useRouter } from 'next/router'
 
 export default function UserSearch () {
