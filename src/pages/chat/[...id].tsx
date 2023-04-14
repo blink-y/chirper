@@ -1,31 +1,31 @@
-import { db } from '@/firebase';
-import { collection, onSnapshot, query, where } from 'firebase/firestore';
+import { db } from '@/firebase'
+import { collection, onSnapshot, query, where } from 'firebase/firestore'
 import Head from 'next/head'
-import { useEffect, useRef, useState } from 'react';
-import Talk from 'talkjs';
-import {AiOutlineArrowLeft} from "react-icons/ai";
+import { useEffect, useRef, useState } from 'react'
+import Talk from 'talkjs'
+import { AiOutlineArrowLeft } from 'react-icons/ai'
 
-export default function ChatRoom() {
-  const chatboxEl = useRef<HTMLDivElement | null>(null);
-  const [talkLoaded, markTalkLoaded] = useState(false);
-  Talk.ready.then(() => markTalkLoaded(true));
+export default function ChatRoom () {
+  const chatboxEl = useRef<HTMLDivElement | null>(null)
+  const [talkLoaded, markTalkLoaded] = useState(false)
+  Talk.ready.then(() => { markTalkLoaded(true) })
 
   useEffect(() => {
     const id1 = window.location.pathname.split('/')[2]
     const id2 = window.location.pathname.split('/')[3]
-    if(id1 && id2 && talkLoaded){
+    if (id1 && id2 && talkLoaded) {
       onSnapshot(
         query(
-          collection(db, `users`), where("userId", "==", id1)
+          collection(db, 'users'), where('userId', '==', id1)
         ),
         async (snapshot) => {
-          const user1 = snapshot.docs[0].data();
+          const user1 = snapshot.docs[0].data()
           onSnapshot(
             query(
-              collection(db, `users`), where("userId", "==", id2)
+              collection(db, 'users'), where('userId', '==', id2)
             ),
             async (snapshot) => {
-              const user2 = snapshot.docs[0].data();
+              const user2 = snapshot.docs[0].data()
               if (talkLoaded) {
                 // Safe to use the SDK here
                 if (talkLoaded) {
@@ -35,33 +35,33 @@ export default function ChatRoom() {
                     email: user1.email,
                     photoUrl: 'https://www.sksales.com/wp-content/uploads/2016/12/Unknown-Placeholder-Portrait-20150724A.jpg',
                     welcomeMessage: 'Hello!',
-                    role: 'default',
-                  });
-            
+                    role: 'default'
+                  })
+
                   const otherUser = new Talk.User({
                     id: user2.userId,
                     name: user2.username,
                     email: user2.email,
                     photoUrl: 'https://www.sksales.com/wp-content/uploads/2016/12/Unknown-Placeholder-Portrait-20150724A.jpg',
                     welcomeMessage: 'Hello!',
-                    role: 'default',
-                  });
-            
+                    role: 'default'
+                  })
+
                   const session = new Talk.Session({
                     appId: 'tnvwPP6b',
-                    me: currentUser,
-                  });
-            
-                  const conversationId = Talk.oneOnOneId(currentUser, otherUser);
-                  const conversation = session.getOrCreateConversation(conversationId);
-                  conversation.setParticipant(currentUser);
-                  conversation.setParticipant(otherUser);
-            
-                  const chatbox = session.createChatbox();
-                  chatbox.select(conversation);
-                  chatbox.mount(chatboxEl.current);
-            
-                  return () => session.destroy();
+                    me: currentUser
+                  })
+
+                  const conversationId = Talk.oneOnOneId(currentUser, otherUser)
+                  const conversation = session.getOrCreateConversation(conversationId)
+                  conversation.setParticipant(currentUser)
+                  conversation.setParticipant(otherUser)
+
+                  const chatbox = session.createChatbox()
+                  chatbox.select(conversation)
+                  chatbox.mount(chatboxEl.current)
+
+                  return () => { session.destroy() }
                 }
               }
             }
@@ -69,7 +69,7 @@ export default function ChatRoom() {
         }
       )
     }
-  }, [talkLoaded]);
+  }, [talkLoaded])
   return (
     <div>
       <Head>
@@ -79,7 +79,7 @@ export default function ChatRoom() {
       </Head>
 
       <main className='text-black dark:text-white bg-white dark:bg-black h-screen'>
-        <div className="absolute top-4 left-4 cursor-pointer" onClick={()=>history.back()}><AiOutlineArrowLeft className="w-7 h-7" /></div>
+        <div className="absolute top-4 left-4 cursor-pointer" onClick={() => { history.back() }}><AiOutlineArrowLeft className="w-7 h-7" /></div>
         <div className="text-2xl text-center text-black dark:text-white py-10">Your chatroom</div>
         <div className="w-screen">
           <div ref={chatboxEl} className="h-[500px] mx-auto w-fit"></div>

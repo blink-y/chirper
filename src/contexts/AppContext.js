@@ -1,15 +1,13 @@
-import React, { useState, createContext } from "react";
+import React, { useState, createContext } from 'react'
 
-export const AppContext = createContext();
+export const AppContext = createContext()
 
 export const AppContextProvider = props => {
+  const [appContext, setAppContext] = useState({})
 
-    const [appContext, setAppContext] = useState({});
-
-    return (
+  return (
         <AppContext.Provider value={[appContext, setAppContext]}>
             {props.children}
         </AppContext.Provider>
-    );
-
+  )
 }

@@ -1,23 +1,23 @@
 import Head from 'next/head'
 import Feed from '../components/Chirps/Feed'
 import { AppContext } from '@/contexts/AppContext'
-import { useContext, useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import Sidebar from '@/components/Common/Sidebar'
 import Trending from '@/components/Common/Trending'
-import React from 'react'
+
 import { useRouter } from 'next/router'
 
-export default function Home() {
+export default function Home () {
   const router = useRouter()
   const [appContext] = useContext(AppContext)
-  const [hasMounted, setHasMounted] = React.useState(false);
+  const [hasMounted, setHasMounted] = React.useState(false)
   React.useEffect(() => {
-    setHasMounted(true);
-  }, []);
+    setHasMounted(true)
+  }, [])
   if (!hasMounted) {
-    return null;
+    return null
   }
-  if(hasMounted && localStorage.getItem('userId') == null){
+  if (hasMounted && localStorage.getItem('userId') == null) {
     router.push('/login')
   }
   return (

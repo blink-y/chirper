@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import React from 'react'
 
-const TrendingList = ({title, category}) => {
-    return (
+const TrendingList = ({ title, category }) => {
+  return (
         <div className='mt-4 flex items-center'>
             <div>
                 <Image className='rounded-3xl' src="/nextjs_icon.png" height="48" width="48" />
@@ -13,7 +13,7 @@ const TrendingList = ({title, category}) => {
             </div>
 
         </div>
-    )
+  )
 }
 
 export default TrendingList

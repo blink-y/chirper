@@ -12,18 +12,18 @@ const Feed = () => {
   useEffect(() => {
     onSnapshot(
       query(
-        collection(db, `users`), where("tag", "==", localStorage.getItem("tag"))
+        collection(db, 'users'), where('tag', '==', localStorage.getItem('tag'))
       ),
       (snapshot) => {
-        if(snapshot.docs.length > 0) {
+        if (snapshot.docs.length > 0) {
           setUser(snapshot.docs[0].data())
           console.log(snapshot.docs[0].data())
-          localStorage.setItem("userId", snapshot.docs[0].data().userId)
+          localStorage.setItem('userId', snapshot.docs[0].data().userId)
           const followingList = snapshot.docs[0].data().following
-          if(followingList !== undefined) {
+          if (followingList !== undefined) {
             onSnapshot(
               query(
-                collection(db, `posts`), where("userId", "in", followingList)
+                collection(db, 'posts'), where('userId', 'in', followingList)
               ),
               (snapshot) => {
                 setPosts(snapshot.docs.map((doc) => doc.data()).sort((a, b) => b.timestamp - a.timestamp))
@@ -38,32 +38,32 @@ const Feed = () => {
   const updatePost = (singlePost) => {
     const update = onSnapshot(
       query(
-        collection(db, `users`), where("userId", "==", singlePost.userId)
+        collection(db, 'users'), where('userId', '==', singlePost.userId)
       ),
       async (snapshot) => {
-        const postOwner = snapshot.docs[0].data();
+        const postOwner = snapshot.docs[0].data()
         const replaceIndex = postOwner.posts.findIndex((item) => item.id === singlePost.id)
         postOwner.posts[replaceIndex] = singlePost
-        await updateDoc(doc(db, "users", singlePost.userId), {
+        await updateDoc(doc(db, 'users', singlePost.userId), {
           posts: postOwner.posts
         })
       }
-    );
-    update();
+    )
+    update()
   }
-  const [hasMounted, setHasMounted] = React.useState(false);
+  const [hasMounted, setHasMounted] = React.useState(false)
   React.useEffect(() => {
-    setHasMounted(true);
-  }, []);
+    setHasMounted(true)
+  }, [])
   React.useEffect(() => {
-    console.log(posts);
-  }, [posts]);
+    console.log(posts)
+  }, [posts])
   if (!hasMounted) {
-    return null;
+    return null
   }
   return (
     <>
-      
+
       <div className='top-bar'>
         Home
         <div className="my-auto">
@@ -72,10 +72,10 @@ const Feed = () => {
       </div>
       <Input className='' user={user} />
       {posts.map((post) => {
-          return(
+        return (
             <Post key={post.id} post={post} id={post.id} user={user} updatePost={updatePost} />
-          )
-        }
+        )
+      }
       )}
     </>
   )
