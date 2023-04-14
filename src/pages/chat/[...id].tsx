@@ -97,7 +97,7 @@ export default function ChatRoom() {
             
                   const chatbox = session.createChatbox();
                   chatbox.select(conversation);
-                  chatbox.mount(chatboxEl.current);
+                  chatbox.mount(chatboxEl.current?: HTMLElement);
             
                   return () => session.destroy();
                 }
