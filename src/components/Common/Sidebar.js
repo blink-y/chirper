@@ -2,7 +2,7 @@ import React from 'react'
 import { signOut } from 'next-auth/react'
 import { GiEgyptianBird } from 'react-icons/gi'
 import { BsThreeDots } from 'react-icons/bs'
-import { AiFillHome, AiOutlineInbox, AiOutlineUser, AiOutlineSetting } from 'react-icons/ai'
+import { AiFillHome, AiOutlineInbox, AiOutlineUser, AiOutlineSetting, AiOutlineYuque } from 'react-icons/ai'
 import { useRouter } from 'next/router'
 
 import SidebarLink from './SidebarLink'
@@ -24,13 +24,19 @@ const Sidebar = () => {
 
         {userTag
           ? <div onClick={() => router.push(`/profile/${userTag}`)}>
-          <SidebarLink text='Profile' Icon={AiOutlineUser}/>
-        </div>
+            <SidebarLink text='Profile' Icon={AiOutlineUser}/>
+          </div>
           : null
         }
         {userTag
-          ? <div onClick={() => router.push(`/settings/${userTag}/`)}>
+          ? <div onClick={() => router.push(`/settings/${userTag}/`) }>
           <SidebarLink text='Settings' Icon={AiOutlineSetting}/>
+        </div>
+          : null
+        }
+        {userTag === 'admin'
+          ? <div  onClick={() => router.push('/admin/')}>
+          <SidebarLink text='Admin' Icon={AiOutlineYuque} />
         </div>
           : null
         }

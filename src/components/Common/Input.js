@@ -1,9 +1,6 @@
 import React, { useState, useContext } from 'react'
-import { BsImage, BsEmojiSmile } from 'react-icons/bs'
-import { AiOutlineClose } from 'react-icons/ai'
-import { RiBarChart2Line } from 'react-icons/ri'
-import { IoCalendarNumberOutline } from 'react-icons/io5'
-import { HiOutlineLocationMarker } from 'react-icons/hi'
+import { BsImage } from 'react-icons/bs'
+import { AiOutlineClose, AiOutlineAlignLeft, AiOutlineMeh, AiOutlineCalendar, AiOutlineVerticalAlignBottom } from 'react-icons/ai'
 import { AppContext } from '@/contexts/AppContext'
 import data from '@emoji-mart/data'
 import Picker from '@emoji-mart/react'
@@ -150,10 +147,10 @@ const Input = ({ user }) => {
                   hidden
                   onChange={addImageToPost}
               />
-              <RiBarChart2Line className='rotate-90' />
-              <BsEmojiSmile className='cursor-pointer' onClick={() => setShowEmojis(!showEmojis)} />
-              <IoCalendarNumberOutline />
-              <HiOutlineLocationMarker />
+              <AiOutlineAlignLeft />
+              <AiOutlineMeh className='cursor-pointer' onClick={() => setShowEmojis(!showEmojis)} />
+              <AiOutlineCalendar />
+              <AiOutlineVerticalAlignBottom />
               <button
                 className={`${
                   isNSFW ? 'text-[#ab4f56]' : 'text-[#ab4f56 ]'
