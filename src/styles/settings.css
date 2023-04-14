@@ -11,14 +11,14 @@
   }
   
   .input-field:focus {
-    @apply border-blue-400 dark:border-blue-300;
+    @apply border-brown-400 dark:border-brown-300;
   }
   
   .save-button {
-    @apply bg-blue-500 text-white py-2 px-4 text-base font-semibold border-none rounded-full cursor-pointer transition duration-200;
+    @apply bg-brown-500 text-white py-2 px-4 text-base font-semibold border-none rounded-full cursor-pointer transition duration-200;
   }
   
   .save-button:hover {
-    @apply bg-blue-600;
+    @apply bg-brown-600;
   }
   

@@ -1,6 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
-import { BsTwitter } from 'react-icons/bs'
+import { GiEgyptianBird } from 'react-icons/gi';
 import { AiOutlineMail } from 'react-icons/ai'
 import { useRouter } from 'next/router'
 
@@ -30,7 +30,7 @@ const Login = () => {
     </Head>
     <div className='grid grid-col-2'>
       <div className='login_background'>
-        <BsTwitter className='text-white text-[200px]'/>
+        <GiEgyptianBird className='text-white text-[200px]'/>
       </div>
       <div className='absolute bottom-20 flex left-0 right-0 mx-auto'>
         {/* <div className='google_sign_in_button' onClick={() => googleSignin()}>

@@ -70,7 +70,7 @@ const EmailSignup = () => {
         </Head>
         <div className="text-white min-h-screen bg-white dark:bg-slate-900">
             <h1 className="text-center text-4xl font-semibold pt-4 text-black dark:text-white">Sign Up</h1>
-            <div className="bg-blue-500 dark:bg-gray-800 rounded-xl mx-auto my-auto p-8 items-center text-black w-4/5 lg:w-1/2 max-w-[800px] mt-10">
+            <div className="bg-brown-500 dark:bg-gray-800 rounded-xl mx-auto my-auto p-8 items-center text-black w-4/5 lg:w-1/2 max-w-[800px] mt-10">
                 <div className="w-full">
                     <div className="text-white text-lg my-2">Username</div>
                     <input type="text" className="w-full dark:text-white" value={username} onChange={(e) => { setUsername(e.target.value) }}/>
@@ -96,7 +96,7 @@ const EmailSignup = () => {
                     <div className="my-auto text-white underline cursor-pointer" onClick={async () => await router.push('/login')}>Already have an account? Login here!</div>
                     {
                         valid
-                          ? <div className="rounded-full px-4 py-2 bg-blue-400 mt-4 w-fit cursor-pointer ml-auto" onClick={async () => { await loginUser() }}>Sign Up</div>
+                          ? <div className="rounded-full px-4 py-2 bg-brown-400 mt-4 w-fit cursor-pointer ml-auto" onClick={async () => { await loginUser() }}>Sign Up</div>
                           : <div className="rounded-full px-4 py-2 bg-gray-400 mt-4 w-fit cursor-not-allowed ml-auto">Sign Up</div>
                     }
                 </div>
