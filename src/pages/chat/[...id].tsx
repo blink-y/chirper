@@ -6,49 +6,11 @@ import Talk from 'talkjs';
 import {AiOutlineArrowLeft} from "react-icons/ai";
 
 export default function ChatRoom() {
-  const chatboxEl = useRef();
+  const chatboxEl = useRef<HTMLDivElement | null>(null);
   const [talkLoaded, markTalkLoaded] = useState(false);
   Talk.ready.then(() => markTalkLoaded(true));
 
   useEffect(() => {
-  //   if (talkLoaded) {
-  //     // Safe to use the SDK here
-  //     if (talkLoaded) {
-  //       const currentUser = new Talk.User({
-  //         id: '1',
-  //         name: 'Henry Mill',
-  //         email: 'henrymill@example.com',
-  //         photoUrl: 'https://www.sksales.com/wp-content/uploads/2016/12/Unknown-Placeholder-Portrait-20150724A.jpg',
-  //         welcomeMessage: 'Hello!',
-  //         role: 'default',
-  //       });
-  
-  //       const otherUser = new Talk.User({
-  //         id: '2',
-  //         name: 'Jessica Wells',
-  //         email: 'jessicawells@example.com',
-  //         photoUrl: 'https://www.sksales.com/wp-content/uploads/2016/12/Unknown-Placeholder-Portrait-20150724A.jpg',
-  //         welcomeMessage: 'Hello!',
-  //         role: 'default',
-  //       });
-  
-  //       const session = new Talk.Session({
-  //         appId: 'tnvwPP6b',
-  //         me: otherUser,
-  //       });
-  
-  //       const conversationId = Talk.oneOnOneId(currentUser, otherUser);
-  //       const conversation = session.getOrCreateConversation(conversationId);
-  //       conversation.setParticipant(currentUser);
-  //       conversation.setParticipant(otherUser);
-  
-  //       const chatbox = session.createChatbox();
-  //       chatbox.select(conversation);
-  //       chatbox.mount(chatboxEl.current);
-  
-  //       return () => session.destroy();
-  //     }
-  //   }
     const id1 = window.location.pathname.split('/')[2]
     const id2 = window.location.pathname.split('/')[3]
     if(id1 && id2 && talkLoaded){
