@@ -94,7 +94,7 @@ const Modal = ({open, setOpen, post}) => {
                     <div className="sm:flex sm:items-start">
                     <div className="mt-3 text-center sm:mt-0 sm:ml-2 sm:text-left">
                         <Dialog.Title as="div" className="text-lg leading-6 font-medium text-black dark:text-white">
-                        Replying to @{post.tag}'s tweet
+                        Replying to @{post.tag}'s chirp
                         </Dialog.Title>
                     </div>
                     </div>
@@ -170,7 +170,7 @@ const Modal = ({open, setOpen, post}) => {
                         className="bg-[#1d9bf0] text-white rounded-full px-4 py-1.5 font-bold shadow-md hover:bg-[#1a8cd8] disabled:hover:bg-[#1d9bf0] disabled:opacity-50 disabled:cursor-default ml-4"
                         disabled={!input.trim() && !selectedFile}
                         onClick={sendReply} >
-                        Tweet
+                        Chirp
                     </button>
                 </div>
                 </div>

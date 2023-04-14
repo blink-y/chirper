@@ -129,7 +129,7 @@ const Post = ({ post}) => {
         retweetee?(
           <div className="ml-3 mb-2 text-xs text-gray-300 flex">
             <FaRetweet className='w-3 h-3 mr-2 my-auto' />
-            {retweetee.username} retweeted this
+            {retweetee.username} chirped this
           </div>
         )
         :null

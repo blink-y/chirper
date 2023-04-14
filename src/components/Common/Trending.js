@@ -13,7 +13,7 @@ const Trending = () => {
 
             <div className='bg-slate-100 dark:bg-[#16181C] flex gap-2 rounded-full py-2 px-4 text-black dark:text-white items-center text-[20px] sticky top-1 z-10'>
                 <FiSearch />
-                <input className='bg-transparent w-[100%] outline-none' type="text" placeholder='Search Twitter' onKeyDown={proceedSearch} />
+                <input className='bg-transparent w-[100%] outline-none' type="text" placeholder='Search Chirper' onKeyDown={proceedSearch} />
             </div>
 
 
