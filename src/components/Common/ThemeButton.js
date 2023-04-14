@@ -15,10 +15,10 @@ const ThemeButton = () => {
         <div className="absolute right-4 lg:right-6 bottom-4 lg:bottom-6">
             {theme === 'light'
               ? (
-                <HiOutlineSun className="text-yellow-400 h-8 w-8 cursor-pointer" onClick={() => setTheme('dark')} />
+                <HiMoon className="text-yellow-400 h-8 w-8 cursor-pointer" onClick={() => setTheme('dark')} />
                 )
               : (
-                <HiMoon className="text-yellow-400 h-8 w-8 cursor-pointer" onClick={() => setTheme('light')} />
+                <HiOutlineSun className="text-yellow-400 h-8 w-8 cursor-pointer" onClick={() => setTheme('light')} />
                 )}
         </div>
   )

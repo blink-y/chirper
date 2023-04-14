@@ -54,7 +54,7 @@ const Post = ({ post }) => {
     let updatedLiked = liked
     let updatedDislikes = dislikes
     let updatedDisliked = disliked
-    if (liked == true) {
+    if (liked === true) {
       updatedLikes = likes.filter(id => id !== userId)
       updatedLiked = false
     } else {
@@ -77,7 +77,7 @@ const Post = ({ post }) => {
     let updatedLiked = liked
     let updatedDislikes = dislikes
     let updatedDisliked = disliked
-    if (disliked == true) {
+    if (disliked === true) {
       updatedDislikes = dislikes.filter(id => id !== userId)
       updatedDisliked = false
     } else {

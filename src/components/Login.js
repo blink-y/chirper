@@ -7,9 +7,6 @@ import { useRouter } from 'next/router'
 const Login = () => {
   const router = useRouter()
 
-  // const googleSignin = () => {
-  //   signIn('google', {callbackUrl: '/'});
-  // }
   const emailSignin = () => {
     router.push('/login')
   }

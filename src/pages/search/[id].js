@@ -2,7 +2,7 @@ import Head from 'next/head'
 import React, { useEffect, useState } from 'react'
 import Sidebar from '@/components/Common/Sidebar'
 import Trending from '@/components/Common/Trending'
-import { onSnapshot, collection, query, where, doc, updateDoc } from 'firebase/firestore'
+import { onSnapshot, collection, query, where, doc, updateDoc, orderBy } from 'firebase/firestore'
 import { db } from '@/firebase'
 import { useRouter } from 'next/router'
 
@@ -20,9 +20,12 @@ export default function UserSearch () {
     }
     if (userId) {
       onSnapshot(
-        query(collection(db, 'users'), where('tag', '>=', searchKeyWord), where('title', '<=', searchKeyWord + '~')),
+        query(collection(db, 'users'), orderBy('tag')),
         (snapshot) => {
-          const res = snapshot.docs.map((data) => data.data())
+          const res = snapshot.docs.filter((doc) => {
+            const tag = doc.data().tag.toLowerCase()
+            return tag.includes(searchKeyWord.toLowerCase())
+          }).map((doc) => doc.data())
           setResult(res)
         }
       )
