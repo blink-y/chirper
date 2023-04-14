@@ -1,11 +1,9 @@
 import Head from 'next/head'
-import { AppContext } from '@/contexts/AppContext'
-import React, { useContext, useEffect, useState } from 'react'
-import Modal from '@/components/Common/Modal'
+import React, { useEffect, useState } from 'react'
 import Sidebar from '@/components/Common/Sidebar'
 import Trending from '@/components/Common/Trending'
-import { onSnapshot, collection, query, orderBy, where, addDoc, documentId, deleteDoc, setDoc, doc, updateDoc, arrayUnion } from 'firebase/firestore'
-import { db, firebase } from '@/firebase'
+import { onSnapshot, collection, query, where, doc, updateDoc } from 'firebase/firestore'
+import { db } from '@/firebase'
 import { useRouter } from 'next/router'
 
 export default function UserSearch () {
@@ -22,7 +20,7 @@ export default function UserSearch () {
     }
     if (userId) {
       onSnapshot(
-        query(collection(db, 'users'), where('tag', '==', searchKeyWord)),
+        query(collection(db, 'users'), where('tag', '>=', searchKeyWord), where('title', '<=', searchKeyWord + '~')),
         (snapshot) => {
           const res = snapshot.docs.map((data) => data.data())
           setResult(res)

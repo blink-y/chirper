@@ -2,8 +2,9 @@ import { BiDotsHorizontalRounded } from 'react-icons/bi'
 import { AiOutlineHeart, AiOutlineShareAlt } from 'react-icons/ai'
 import { BsBarChart, BsChatDots } from 'react-icons/bs'
 import Moment from 'react-moment'
+import React from 'react'
 
-function Comment({ comment, ownerTag }) {
+function Comment ({ comment, ownerTag }) {
   return (
         <div className="comment_container">
             <img
