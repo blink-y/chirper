@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
 import { auth, db } from '../firebase'
 import React from 'react'
-import { addDoc, collection, doc, updateDoc } from '@firebase/firestore'
+import { addDoc, collection } from '@firebase/firestore'
 
 const EmailSignup = () => {
     const [hasMounted, setHasMounted] = React.useState(false);

@@ -1,7 +1,7 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BsChat } from "react-icons/bs"
 import { FaRetweet } from "react-icons/fa"
-import { AiOutlineLike, AiOutlineDislike, AiFillLike, AiFillDislike, RiBarChart2Line} from 'react-icons/ai'
+import { AiOutlineLike, AiOutlineDislike, AiFillLike, AiFillDislike} from 'react-icons/ai'
 import { RiDeleteBin5Line } from 'react-icons/ri'
 import Moment from 'react-moment'
 import Modal from '@/components/Common/Modal'

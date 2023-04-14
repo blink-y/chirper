@@ -1,14 +1,12 @@
-import React, { useContext, useState } from 'react'
-import { MdClose } from "react-icons/md"
+import React, {  useState } from 'react'
 import { BsImage, BsEmojiSmile } from "react-icons/bs"
-import { AiOutlineGif, AiOutlineClose, AiFillCloseCircle } from "react-icons/ai"
+import { AiFillCloseCircle } from "react-icons/ai"
 import { RiBarChart2Line } from "react-icons/ri"
 import { IoCalendarNumberOutline } from "react-icons/io5"
 import { HiOutlineLocationMarker } from "react-icons/hi"
-import Moment from 'react-moment'
 import { addDoc, collection, serverTimestamp, updateDoc, doc } from 'firebase/firestore'
 import { db } from '@/firebase'
-import { Fragment, useRef } from 'react';
+import { Fragment } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import Picker from '@emoji-mart/react'
 import data from '@emoji-mart/data'

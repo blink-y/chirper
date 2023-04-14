@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react'
 import { BsImage, BsEmojiSmile } from "react-icons/bs"
-import { AiOutlineGif, AiOutlineClose } from "react-icons/ai"
+import { AiOutlineClose } from "react-icons/ai"
 import { RiBarChart2Line } from "react-icons/ri"
 import { IoCalendarNumberOutline } from "react-icons/io5"
 import { HiOutlineLocationMarker } from "react-icons/hi"

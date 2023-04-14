@@ -1,10 +1,7 @@
 import Head from 'next/head'
-import dynamic from 'next/dynamic'
-import Login from "@/components/Login"
 import Feed from '../components/Chirps/Feed'
 import { AppContext } from '@/contexts/AppContext'
 import { useContext, useEffect } from 'react'
-import Modal from '@/components/Common/Modal'
 import Sidebar from '@/components/Common/Sidebar'
 import Trending from '@/components/Common/Trending'
 import React from 'react'

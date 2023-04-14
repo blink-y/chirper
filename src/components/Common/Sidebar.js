@@ -1,9 +1,9 @@
 import React from 'react'
 import { signOut } from 'next-auth/react'
 import { BiHash } from 'react-icons/bi'
-import { BsTwitter, BsBell, BsBookmark, BsThreeDots } from 'react-icons/bs'
+import { BsTwitter, BsThreeDots } from 'react-icons/bs'
 import { AiFillHome, AiOutlineInbox, AiOutlineUser } from 'react-icons/ai'
-import { HiOutlineClipboardList, HiOutlineDotsCircleHorizontal } from 'react-icons/hi'
+import { HiOutlineDotsCircleHorizontal } from 'react-icons/hi'
 import { useRouter } from 'next/router'
 
 import SidebarLink from './SidebarLink'

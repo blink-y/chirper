@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import Head from 'next/head'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { auth, db } from '../firebase'
-import { addDoc, collection, doc, onSnapshot, query, updateDoc, where } from 'firebase/firestore'
+import { collection, onSnapshot, query, where } from 'firebase/firestore'
 const EmailLogin = () => {
     const router = useRouter()
     const [email, setEmail] = useState('')

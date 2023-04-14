@@ -1,8 +1,7 @@
-import { BiDotsHorizontalRounded } from "react-icons/bi"
-import { AiOutlineHeart, AiFillHeart, AiOutlineShareAlt } from "react-icons/ai"
-import { HiOutlineSwitchHorizontal } from "react-icons/hi"
-import { BsBarChart, BsTrash, BsChatDots } from "react-icons/bs"
-import Moment from "react-moment";
+import { BiDotsHorizontalRounded } from 'react-icons/bi'
+import { AiOutlineHeart, AiOutlineShareAlt } from 'react-icons/ai'
+import { BsBarChart, BsChatDots } from 'react-icons/bs'
+import Moment from 'react-moment'
 
 function Comment({ comment, ownerTag }) {
     return (
@@ -20,10 +19,10 @@ function Comment({ comment, ownerTag }) {
                                 {comment?.username}
                             </h4>
                             <span className="ml-1.5 text-sm sm:text-[15px]">
-                                @{comment?.tag}{" "}
+                                @{comment?.tag}{' '}
                             </span>
-                        </div>{" "}
-                        ·{" "}
+                        </div>{' '}
+                        ·{' '}
                         <span className="hover:underline text-sm sm:text-[15px]">
                             <Moment fromNow>{comment?.timestamp?.toDate()}</Moment>
                         </span>
@@ -60,7 +59,7 @@ function Comment({ comment, ownerTag }) {
                 </div>
             </div>
         </div>
-    );
+    )
 }
 
-export default Comment;
+export default Comment

@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { BsArrowLeft } from "react-icons/bs"
-import Input from '../Common/Input'
 import Post from './Post'
-import { updateDoc, onSnapshot, collection, query, getDoc, doc, where } from "firebase/firestore";
+import { updateDoc, onSnapshot, collection, query, getDoc, doc } from "firebase/firestore";
 import { db } from "../../firebase";
 import { useRouter } from 'next/router';
 import Comment from './Comment';

@@ -1,9 +1,7 @@
-import { signIn } from 'next-auth/react'
 import React from 'react'
 import Head from 'next/head'
 import { BsTwitter } from 'react-icons/bs'
 import { AiOutlineMail } from 'react-icons/ai'
-import { FcGoogle } from 'react-icons/fc'
 import { useRouter } from 'next/router'
 
 const Login = () => {
